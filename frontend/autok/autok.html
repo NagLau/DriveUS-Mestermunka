@@ -43,29 +43,19 @@
             </form>
         </div>
 
-         <!-- <div class="filter-container2">
-            <p id="szuroszoveg2">Autó szűrő</p>
-            <form action="#" method="GET" class="filter-form2">
-                <label for="car-type" id="car-tipus2">Autó típus:</label>
-                <select id="car-type" name="car-type">
-                    <option value="sport">Sport autó</option>
-                    <option value="csaladi">Családi autó</option>
-                    <option value="teher">Teher autó</option>
-                    <option value="luxus">Luxus autó</option>
-                </select>
-    
-                <label for="color" id="car-szin2">Szín:</label>
-                <select id="color" name="color">
-                    <option value="kek">Kék</option>
-                    <option value="fekete">Fekete</option>
-                    <option value="piros">Piros</option>
-                    <option value="szurke">Szürke</option>
-                </select>
-                <button type="submit" class="filter-btn2">SZŰRÉS</button>
-            </form>
-        </div> -->
-
         <div class="container">
+            <div class="card">
+                <h3>Toyota Camry</h3>
+                <img src="../fooldal/bkep3.jpg" alt="Kép" class="card-img" onclick="openModal(this)">
+                <div class="card-text">
+                    <p>• Gyártási év: 2018–2023</p>
+                    <p>• Futott kilométer: 45 000 km</p>
+                    <p>• Motortípus: 2.5L, hibrid</p>
+                    <p>• Teljesítmény: 208 LE</p>
+                    <p>• Váltó: CVT automata</p>
+                </div>
+                <button onclick="sendEmailFromButton(this)">Foglalás</button>
+            </div>
 
             <div class="card">
                 <h3>Aston Martin D9</h3>
@@ -86,7 +76,7 @@
                 <div class="card-text">
                     <p>• Gyártási év: 2002–2020</p>
                     <p>• Futott kilométer: 85 000 km</p>
-                    <p>• Motortípus: 3.0L , szívómotor</p>
+                    <p>• Motortípus: 3.0L, szívómotor</p>
                     <p>• Teljesítmény: 280-320 LE</p>
                     <p>• Váltó: 6-sebességes automata vagy manuális</p>
                 </div>
@@ -131,25 +121,8 @@
                 </div>
                 <button onclick="sendEmailFromButton(this)">Foglalás</button>
             </div>
-
-            <div class="card">
-                <h3>Aston Martin D9</h3>
-                <img src="../fooldal/bkep1.jpg" alt="Kép" class="card-img" onclick="openModal(this)">
-                <div class="card-text">
-                    <p>• Gyártási év: 2004–2016</p>
-                    <p>• Futott kilométer: 85 000 km</p>
-                    <p>• Motortípus: 5.9L V12, szívómotor</p>
-                    <p>• Teljesítmény: kb. 450–517 LE</p>
-                    <p>• Váltó: 6-sebességes automata vagy manuális</p>
-                </div>
-                <button onclick="sendEmailFromButton(this)">Foglalás</button>
-            </div>
         </div>
-   
-    <!--<footer>
-        <img src="../ceg_logo.png" alt="DriveUs Logo" id="footer-img">
-        <p id="footer_p">Válogass prémium autóink közül, és indulj útnak stílusosan!</p>
-    </footer>-->
+    </main>
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'hu'}, 'google_translate_element');
