@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="autok.css">
+    <title>DriveUs/AUTÓK</title>
+</head>
+<body>
+    <header>
+        <h1 id="focim">DriveUs</h1>
+        <nav>
+            <a href="../hirlap/hirlap.html">HÍRLAP</a>
+            <a href="../berleseim/berleseim.html">BÉRLÉSEIM</a>
+            <a href="../profilom/profilom.html">PROFILOM</a>
+            <a href="../fooldal/index.html">FŐOLDAL</a>
+        </nav>
+        <div id="google_translate_element"></div>
+    </header>
+    <main>
+        <h2 id="aktualis" class="mb-4 text-center">Aktuális ajánlataink</h2>
+
+        <div class="filter-container">
+            <p id="szuroszoveg">Autó szűrő</p>
+            <form action="#" method="GET" class="filter-form">
+                <label for="car-type" id="car-tipus">Autó típus:</label>
+                <select id="tipus" name="car-type">
+                    <option value="sport" id="hatter">Sport autó</option>
+                    <option value="csaladi" id="hatter">Családi autó</option>
+                    <option value="teher" id="hatter">Teher autó</option>
+                    <option value="luxus" id="hatter">Luxus autó</option>
+                </select>
+    
+                <label for="color" id="car-szin">Szín:</label>
+                <select id="szin" name="color">
+                    <option value="kek" id="hatter">Kék</option>
+                    <option value="fekete" id="hatter">Fekete</option>
+                    <option value="piros" id="hatter">Piros</option>
+                    <option value="szurke" id="hatter">Szürke</option>
+                </select>
+                <button type="submit" class="filter-btn2">SZŰRÉS</button>
+            </form>
+        </div>
+
+         <!-- <div class="filter-container2">
+            <p id="szuroszoveg2">Autó szűrő</p>
+            <form action="#" method="GET" class="filter-form2">
+                <label for="car-type" id="car-tipus2">Autó típus:</label>
+                <select id="car-type" name="car-type">
+                    <option value="sport">Sport autó</option>
+                    <option value="csaladi">Családi autó</option>
+                    <option value="teher">Teher autó</option>
+                    <option value="luxus">Luxus autó</option>
+                </select>
+    
+                <label for="color" id="car-szin2">Szín:</label>
+                <select id="color" name="color">
+                    <option value="kek">Kék</option>
+                    <option value="fekete">Fekete</option>
+                    <option value="piros">Piros</option>
+                    <option value="szurke">Szürke</option>
+                </select>
+                <button type="submit" class="filter-btn2">SZŰRÉS</button>
+            </form>
+        </div> -->
+
+        <div class="container">
+
+            <div class="card">
+                <h3>Aston Martin D9</h3>
+                <img src="../fooldal/bkep1.jpg" alt="Kép" class="card-img" onclick="openModal(this)">
+                <div class="card-text">
+                    <p>• Gyártási év: 2004–2016</p>
+                    <p>• Futott kilométer: 85 000 km</p>
+                    <p>• Motortípus: 5.9L V12, szívómotor</p>
+                    <p>• Teljesítmény: 450–517 LE</p>
+                    <p>• Váltó: 6-sebességes automata vagy manuális</p>
+                </div>
+                <button onclick="sendEmailFromButton(this)">Foglalás</button>
+            </div>
+            
+            <div class="card">
+                <h3>Toyota Supra</h3>
+                <img src="../fooldal/bkep2.jpg" alt="Kép" class="card-img" onclick="openModal(this)">
+                <div class="card-text">
+                    <p>• Gyártási év: 2002–2020</p>
+                    <p>• Futott kilométer: 85 000 km</p>
+                    <p>• Motortípus: 3.0L , szívómotor</p>
+                    <p>• Teljesítmény: 280-320 LE</p>
+                    <p>• Váltó: 6-sebességes automata vagy manuális</p>
+                </div>
+                <button onclick="sendEmailFromButton(this)">Foglalás</button>
+            </div>
+
+            <div class="card">
+                <h3>Aston Martin D9</h3>
+                <img src="../fooldal/bkep1.jpg" alt="Kép" class="card-img" onclick="openModal(this)">
+                <div class="card-text">
+                    <p>• Gyártási év: 2004–2016</p>
+                    <p>• Futott kilométer: 85 000 km</p>
+                    <p>• Motortípus: 5.9L V12, szívómotor</p>
+                    <p>• Teljesítmény: kb. 450–517 LE</p>
+                    <p>• Váltó: 6-sebességes automata vagy manuális</p>
+                </div>
+                <button onclick="sendEmailFromButton(this)">Foglalás</button>
+            </div>
+
+            <div class="card">
+                <h3>Aston Martin D9</h3>
+                <img src="../fooldal/bkep1.jpg" alt="Kép" class="card-img" onclick="openModal(this)">
+                <div class="card-text">
+                    <p>• Gyártási év: 2004–2016</p>
+                    <p>• Futott kilométer: 85 000 km</p>
+                    <p>• Motortípus: 5.9L V12, szívómotor</p>
+                    <p>• Teljesítmény: kb. 450–517 LE</p>
+                    <p>• Váltó: 6-sebességes automata vagy manuális</p>
+                </div>
+                <button onclick="sendEmailFromButton(this)">Foglalás</button>
+            </div>
+
+            <div class="card">
+                <h3>Aston Martin D9</h3>
+                <img src="../fooldal/bkep1.jpg" alt="Kép" class="card-img" onclick="openModal(this)">
+                <div class="card-text">
+                    <p>• Gyártási év: 2004–2016</p>
+                    <p>• Futott kilométer: 85 000 km</p>
+                    <p>• Motortípus: 5.9L V12, szívómotor</p>
+                    <p>• Teljesítmény: kb. 450–517 LE</p>
+                    <p>• Váltó: 6-sebességes automata vagy manuális</p>
+                </div>
+                <button onclick="sendEmailFromButton(this)">Foglalás</button>
+            </div>
+
+            <div class="card">
+                <h3>Aston Martin D9</h3>
+                <img src="../fooldal/bkep1.jpg" alt="Kép" class="card-img" onclick="openModal(this)">
+                <div class="card-text">
+                    <p>• Gyártási év: 2004–2016</p>
+                    <p>• Futott kilométer: 85 000 km</p>
+                    <p>• Motortípus: 5.9L V12, szívómotor</p>
+                    <p>• Teljesítmény: kb. 450–517 LE</p>
+                    <p>• Váltó: 6-sebességes automata vagy manuális</p>
+                </div>
+                <button onclick="sendEmailFromButton(this)">Foglalás</button>
+            </div>
+        </div>
+   
+    <!--<footer>
+        <img src="../ceg_logo.png" alt="DriveUs Logo" id="footer-img">
+        <p id="footer_p">Válogass prémium autóink közül, és indulj útnak stílusosan!</p>
+    </footer>-->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'hu'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="autok.js"></script>
+</body>
+</html>

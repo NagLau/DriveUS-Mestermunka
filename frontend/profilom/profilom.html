@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="profilom.css">
+    <title>DriveUs/PROFILOM</title>
+</head>
+<body>
+    <header>
+        <h1 id="focim">DriveUs</h1>
+       <nav>
+            <a href="../hirlap/hirlap.html">HÍRLAP</a>
+            <a href="../autok/autok.html">AUTÓK</a>
+            <a href="../berleseim/berleseim.html">BÉRLÉSEIM</a>
+            <a href="../fooldal/index.html">FŐOLDAL</a>
+        </nav> 
+        <div id="google_translate_element"></div>
+    </header>
+ <div class="profile-update-container">
+    <h2>Profilkép feltöltése és adatok frissítése</h2>
+    <form id="profile-form">
+        <div class="profile-section">
+            <div class="profile-picture-frame" onclick="document.getElementById('profile-picture').click()">
+                Kattints a feltöltéshez
+                <input type="file" id="profile-picture" accept="image/*" style="display: none;">
+            </div>
+            <div class="left-align-fields">
+                <label for="current-username">Jelenlegi felhasználónév:</label>
+                <input type="text" id="current-username" required>
+                <label for="password">Jelszó:</label>
+                <input type="password" id="password" required>
+            </div>
+            <div class="left-align-fields">
+                <label for="username">Új felhasználónév:</label>
+                <input type="text" id="username">
+                
+                <label for="personal-id">Személyi szám:</label>
+                <input type="text" id="personal-id">
+                
+                <label for="license-number">Jogosítványszám:</label>
+                <input type="text" id="license-number">
+            </div>
+        </div>
+        <button type="submit">Adatok frissítése</button>
+    </form>
+</div>
+     <div class="table-container">
+        <table>
+            <tr>
+                <th>Előnyök</th>
+                <th>Új tag</th>
+                <th>Bronz tag</th>
+                <th>Ezüst tag</th>
+                <th>Arany tag</th>
+            </tr>
+            <tr>
+                <td>Okosfoglalás</td>
+                <td class="checkmark">✔</td>
+                <td class="checkmark">✔</td>
+                <td class="checkmark">✔</td>
+                <td class="checkmark">✔</td>
+            </tr>
+            <tr>
+                <td>Kedvezményes kuponok</td>
+                <td class="checkmark">✔</td>
+                <td class="checkmark">✔</td>
+                <td class="checkmark">✔</td>
+                <td class="checkmark">✔</td>
+            </tr>
+            <tr>
+                <td>Kiemelt támogatás</td>
+                <td></td>
+                <td class="checkmark">✔</td>
+                <td class="checkmark">✔</td>
+                <td class="checkmark">✔</td>
+            </tr>
+            <tr>
+                <td>Nincs lemondási díj</td>
+                <td></td>
+                <td></td>
+                <td class="checkmark">✔</td>
+                <td class="checkmark">✔</td>
+            </tr>
+            <tr>
+                <td>Maximális kedvezmény</td>
+                <td></td>
+                <td>20%</td>
+                <td>30%</td>
+                <td>40%</td>
+            </tr>
+        </table>
+        <br>
+        <button onclick="openModal('Bronz tag', '20')">Havi bronz tag vásárlása</button>
+<button onclick="openModal('Ezüst tag', '30')">Havi ezüst tag vásárlása</button>
+<button onclick="openModal('Arany tag', '40')">Havi arany tag vásárlása</button>
+    </div>
+<div id="transaction-modal" class="modal">
+    <div class="modal-content">
+        <h2 id="transaction-status"></h2>
+        <p id="card-storage-status"></p>
+        <button onclick="closeTransactionModal()">Bezárás</button>
+    </div>
+</div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="package-name"></h2>
+            <p id="package-price"></p>
+            <label>Teljes név: <input type="text" required></label>
+            <label>Kártyaszám: <input type="text" required></label>
+            <div class="card-input-container">
+                <img id="card-icon" src="" alt="Kártya ikon" style="display: none; width: 40px;">
+            </div>
+            <label>Lejárati dátum: <input type="date" id="expiry-date" required>
+            <span id="date-error" style="color: red; display: none;">Helytelen dátum!</span></label>
+            <label>CVV: <input type="password" required></label>
+            <label><input type="checkbox" id="store-card"> Kártyaadatait eltároljuk?</label>
+            <button onclick="purchasePackage()">Vásárlás</button>
+            <button onclick="closeModal()">Mégse</button>
+        </div>
+    </div> 
+     <footer>
+        <img src="../logo.jpg" alt="" id="footer-img">
+        <p id="footer_p">Válogass prémium autóink közül, és indulj útnak stílusosan!</p>
+    </footer>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'hu'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+ <script src="profilom.js"></script>
+ </body>
+ </html>

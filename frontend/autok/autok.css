@@ -1,0 +1,315 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #222;
+}
+
+main {
+    flex: 1;
+    padding: 80px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header, footer {
+    background: linear-gradient(90deg, rgb(207, 188, 79), #b8860b);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: flex-end;
+    padding: 5px 15px;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    gap: 15px;
+    margin-right: 25px;
+    margin-left: 20px;
+}
+
+header nav a {
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    align-items: center;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+header nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+    color: #ffd700;
+}
+
+h1 {
+    margin: 0;
+    padding-left: 15px;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #ffd700;
+    font-weight: bold;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-height: 50vh; 
+    transform: translateX(600px);
+}
+
+.card {
+    background: linear-gradient(135deg, #edcd16ec, #ac7b02);
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: #ac7b02;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: #ac7b02;
+    color: black;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 18px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+    color: black;
+}
+
+#footer-img {
+    max-height: 50px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 100px;
+    height: auto;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: left;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal img {
+    max-width: 30%; 
+    max-height: 30%; 
+    border-radius: 10px; 
+    object-fit: contain; 
+}
+
+.modal.open {
+    display: flex; 
+}
+
+.filter-container {
+    background-color: #edcd16ec;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    position: absolute;  
+    left: 20px;  
+    top: 160px;  
+}
+
+h2 {
+    text-align: center;
+    color: #edcd16ec;
+}
+
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.filter-form label {
+    font-size: 14px;
+    color: #555;
+}
+
+.filter-form select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.filter-form .filter-btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: #ac7b02;
+}
+
+.filter-form .filter-btn:hover {
+    transform: scale(1.1);
+    background: #ac7b02;
+    color: black;
+}
+
+.results-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#szuroszoveg{
+    text-align: center;
+    color: #000000;
+    font-weight: bold;
+    font-size: larger;
+}
+
+#car-tipus{
+    color: #000000;
+    font-weight: bold;
+    font-size: medium;
+}
+
+#car-szin{
+    color: #000000;
+    font-weight: bold;
+    font-size: medium;
+}
+
+#tipus{
+    background-color: black;
+    color: #ac7b02
+}
+
+.hatter:hover{
+    background-color:#ac7b02;
+    color: black;
+}
+
+#szin{
+    background-color: black;
+    color: #ac7b02;
+}
+
+@media (max-width: 767px) {
+    #focim {
+        font-size: 24px;
+    }
+
+    nav a {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .filter-container {
+        text-align: center;
+    }
+
+    .filter-form select, .filter-form button {
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    .container .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,132 @@
+// Adatbázis létrehozás
+
+CREATE DATABASE DriveUs
+CHARACTER SET utf8 
+COLLATE utf8_hungarian_ci;
+
+// Táblák létrehozása
+
+1. //Kölcsönözhető autók tábla létrehozása
+CREATE TABLE kolcsonozhetoAutok (
+    jarmuAz  INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    rendszam VARCHAR(10) NOT NULL,
+    marka VARCHAR(255) NOT NULL,
+    modell VARCHAR(255) NOT NULL,
+    evjarat INT(4) NOT NULL,
+    uzemanyag VARCHAR(20) NOT NULL,
+    szin VARCHAR(20) NULL,
+    hengerur DOUBLE NOT NULL,
+    kolcsonzesiAr DOUBLE NOT NULL
+    );
+
+
+2. //Bérlők tábla létrehozása
+CREATE TABLE berlok (
+    felhAz CHAR(8) NOT NULL PRIMARY KEY,
+    nev VARCHAR(100) NOT NULL,
+    szemelyiigszam VARCHAR(8) NOT NULL,
+    jogostivanyszam VARCHAR(8) NOT NULL,
+    
+   
+);
+
+
+3. //Foglalt autók tábla létrehozása
+CREATE TABLE foglaltAutok (
+    foglalt_auto INT NOT NULL,
+    foglalo CHAR(8) NOT NULL,
+    foglalas_kezdete DATETIME NOT NULL,
+    foglalas_vege DATETIME NOT NULL,
+    FOREIGN KEY (foglalt_auto) REFERENCES kolcsonozhetoautok(jarmuAz),
+    FOREIGN KEY (foglalo) REFERENCES berlok(felhAz)
+);
+
+
+4. //Regisztrált felhasználók tábla
+CREATE TABLE regisztraltfelhasznalok (
+    felhAz CHAR(8) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nev VARCHAR(100) NOT NULL,
+    jelszo VARCHAR(255) NOT NULL
+);
+ALTER TABLE regisztraltfelhasznalok 
+DROP PRIMARY KEY, 
+CHANGE felhAz INT(8) UNSIGNED NOT NULL AUTO_INCREMENT, 
+ADD PRIMARY KEY (felhAz);
+
+
+ //Regisztrált felhasználók tábla felhAz mezőjének összekötése a berlok tábla felhAz mezőjével
+ALTER TABLE berlok
+ADD CONSTRAINT fk_berlok_felhasznalo FOREIGN KEY (felhAz) REFERENCES regisztraltfelhasznalok(felhAz);
+
+ALTER TABLE foglaltautok
+ADD CONSTRAINT fk_foglaltautok_berlok FOREIGN KEY (foglalo) REFERENCES berlok(felhAz);
+
+
+5. //Az "árlista" tábla lehetővé tenné a bérleti díjak dinamikus kezelését (pl. hétvégék, szezonális árak).
+CREATE TABLE arlista (
+    arId INT AUTO_INCREMENT PRIMARY KEY,
+    jarmuAz INT,
+    kezdet DATETIME,
+    vege DATETIME,
+    ar DOUBLE,
+    FOREIGN KEY (jarmuAz) REFERENCES kolcsonozhetoautok(jarmuAz)
+);
+
+
+
+6. //Helyszínek kezelése Telephelyek:
+CREATE TABLE telephelyek (
+    telephelyId INT AUTO_INCREMENT PRIMARY KEY,
+    nev VARCHAR(255),
+    cim VARCHAR(255),
+    telefonszam VARCHAR(20)
+);
+
+ALTER TABLE kolcsonozhetoautok
+ADD COLUMN telephelyId INT,
+ADD FOREIGN KEY (telephelyId) REFERENCES telephelyek(telephelyId);
+
+
+7. // Autók elérhetőségének követése:
+ALTER TABLE kolcsonozhetoautok
+ADD COLUMN statusz ENUM('szabad', 'foglalt', 'karbantartas') DEFAULT 'szabad';
+
+
+
+//Fizetési információk
+Bérléshez kapcsolt számlázási adatok:
+CREATE TABLE fizetesek (
+    fizetesId INT AUTO_INCREMENT PRIMARY KEY,
+    berlesId INT,
+    fizetesi_mod VARCHAR(20),
+    osszeg DOUBLE,
+    fizetes_datum DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (berlesId) REFERENCES berlok(felhAz)
+);
+
+
+
+CREATE TABLE auto_allapot (
+    jarmuAz INT AUTO_INCREMENT PRIMARY KEY,
+    ELOTTE_allapot TEXT,
+    UTANA_allapot TEXT,
+    idopont DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (jarmuAz) REFERENCES foglaltautok(foglalt_auto)
+);
+
+
+//Karbantartas tábla létrehozása
+CREATE TABLE karbantartas (
+utolso_szervizeles DATETIME NOT NULL,
+jarmuAZ INT,
+allapota TEXT,
+muszaki_vizsga_lejarat DATETIME,
+biztositas DATETIME,
+FOREIGN KEY (jarmuAz) REFERENCES kolcsonozhetoautok(jarmuAz)
+);
+______________________________________________________________________________________________________
+belrokhoz telefonszam-EMAILCIM
+ALTER TABLE regisztraltfelhasznalok
+ADD COLUMN telefonszam VARCHAR(15) NOT NULL UNIQUE,
+ADD COLUMN e-mail VARCHAR(100) NOT NULL UNIQUE;
+
